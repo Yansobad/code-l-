@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form id="submitform">
+    <label for="">Full name: </label>
+    <input type="text" name="fullname"><br>
+
+    <label for="">Email: </label>
+    <input type="text" name="email"><br>
+
+    <input type="submit" value="save" onclick="saveData()"><br>
+    <input type="submit" value="delete" onclick="xoa()"><br>
+  </form>
+
+  <script> 
+    // localStorage.setItem("my laptop", "LOQ 2024");    "lưu trữ giá trị"
+    // let getData = localStorage.getItem('my laptop');  "Truy vấn giá trị"
+    // localStorage.removeItem('my laptop');"xóa dữ liệu"
+    // localStorage.clear('my laptop'); "xóa sạch dữ liệu"
+
+    
+    function saveData() {
+      const form = document.getElementById("submitform");
+      
+      const fullname = form.fullname.value;
+      const email = form.email.value;
+
+      const user = {
+        fullName : fullname,
+        email : email
+      }
+      const nguoiDung = JSON.stringify(user);
+      localStorage.setItem("Người dùng", nguoiDung);
+      alert('Xong rồi cu');
+      
+    }
+
+    function xoa()  {
+          localStorage.clear()
+          alert('Cook vui vẻ');
+    }
+  </script>
+</body>
+</html>
